@@ -4,14 +4,11 @@
 #include <unistd.h>
 
 
-// int readNumber(void);
 Interface::Interface() {
-
 }
 
 
 Interface::~Interface() {
-	
 }
 
 
@@ -34,22 +31,22 @@ void Interface::track(int avgPos) {
   else if (avgPos < -300) {
   	std::cout << "Detected at " << avgPos << " units, Rotate Left." << std::endl;
   	var = 3;
-  	// write number
+  	writeNumber(var);
   }
   else if (avgPos > 40) {
   	std::cout << "Detected at +" << avgPos << " units, Tilt Right." << std::endl;
   	var = 7;
-  	// write number
+  	writeNumber(var);
   }
   else if (avgPos < -40) {
     std::cout << "Detected at " << avgPos << " units, Tilt Left." << std::endl;
     var = 6;
-  	// write number
+  	writeNumber(var);
   }
   else {
     std::cout << "Detected at " << avgPos << " units, Go Straight." << std::endl;
     var = 1;
-  	// write number
+  	writeNumber(var);
   }
 }
 
