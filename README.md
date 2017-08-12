@@ -22,3 +22,4 @@ $ g++ -isystem ${GTEST_DIR}/include -pthread interface_unittest.cc ../../interfa
 - [google test setup](https://github.com/google/googletest/tree/master/googletest)
 - [googletest usage sample](https://stackoverflow.com/questions/31254657/googletest-run-all-tests-not-finding-test-fixtures)
 - [goolgetest test code sample official](https://github.com/google/googletest/blob/master/googletest/samples/sample1_unittest.cc)
+- [Testing std output](https://stackoverflow.com/questions/4191089/how-to-unit-test-function-writing-to-stdout-stdcout)

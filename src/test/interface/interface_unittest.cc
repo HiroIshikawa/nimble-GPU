@@ -1,8 +1,10 @@
 #include "../../interface/Interface.h"
 #include "/Users/hiro99ishikawa/Library/googletest/googletest/include/gtest/gtest.h"
 
+#include <string>
 
-TEST(ReadNumberTest, Negative) {
+
+TEST(ReadNumberTest, Return) {
 	Interface interface;
 	EXPECT_EQ(-1, interface.readNumber());
 }

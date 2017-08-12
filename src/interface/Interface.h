@@ -2,10 +2,6 @@
 #define INTERFACE_H_
 
 class Interface {
-  private:
-    short int var;
-    int distance;
-
   public:
   	Interface();
   	~Interface();
@@ -13,6 +9,10 @@ class Interface {
   	int readNumber(void);
     void track(int avgPos);
     void monitor(int avgPos);
+
+  private:
+    short int var;
+    int distance;
 };
 
 #endif  // INTERFACE_H_
