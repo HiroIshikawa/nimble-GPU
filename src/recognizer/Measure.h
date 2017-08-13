@@ -14,3 +14,5 @@ class Measure {
 		std::pair<int, int> PosFromCenter(std::pair<int, int> imgCenter, std::pair<int, int> boxCenter);
 		void RunMeasure(cv::Mat img, std::vector<cv::Rect> rects, &std::vector<std::pair<int, int>> candidates);
 };
+
+#endif  // MEASURE_H_

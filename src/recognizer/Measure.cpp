@@ -19,10 +19,12 @@ std::pair<int, int> Measure::CenteringBox(cv::Rect rect) {
 	return boxCenter;	
 }
 
+
 std::pair<int, int> Measure::PosFromCenter(std::pair<int, int> imgCenter, std::pair<int, int> boxCenter) {
 	std::pair<int, int> boxRelPos ((boxCenter.first-imgCenter.first),(boxCenter.first-imgCenter.first));
 	return boxRelPos;
 }
+
 
 void Measure::RunMeasure(cv::Mat img, std::vector<cv::Rect> rects, &std::vector<std::pair<int, int>> candidates) {
 	std::pair<int, int> imgCenter;
@@ -44,5 +46,18 @@ void Measure::RunMeasure(cv::Mat img, std::vector<cv::Rect> rects, &std::vector<
 		boxes[i]["boxSize"] = SizingBox(rects[i]);
 		boxes[i]["boxCenter"] = CenteringImg(rects[i]);
 		boxes[i]["boxToCenter"] = PosFromCenter(imgCenter, boxes[i]["boxCenter"]);
+	}
+	if (boxes.size() > 0) {
+		std::map<std::string, std::pair<int, int>> maxItem;
+		int maxSize = 0;
+		int curSize = 0;
+		for (int i = 0; i < nBoxes; ++i) {
+			curSize = boxes[i]["boxSize"].first * boxes[i]["boxSize"].second;
+			if (maxSize < curSize) {
+				maxSize = curSize;
+				maxSizeItem = boxes[i];
+			}
+		}
+		candidates.push_back(maxSizeItem["boxToCenter"].first);
 	}
 }
