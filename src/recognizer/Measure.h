@@ -5,6 +5,7 @@
 #include <opencv2/highgui.hpp>
 #include <iostream>
 #include <stdlib>
+#include "Measure.h"
 
 class Measure {
 	public:
