@@ -7,8 +7,8 @@
 
 class Preprocess {
   public:
-  	cv::Mat preprocess(cv::Mat img);
-  	cv::Mat regionOfInterest(cv::Mat img, std::vector<cv::Point> vertices);
+  	cv::Mat Preprocess(cv::Mat img);
+  	cv::Mat RegionOfInterest(cv::Mat img, int width, int height, std::vector<cv::Point> vertices);
 };
 
 #endif  // PREPROCESS_H_
