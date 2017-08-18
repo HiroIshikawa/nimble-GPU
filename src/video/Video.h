@@ -8,13 +8,13 @@ class Video {
   	cv::Mat grabbed;
   	cv::Mat frame;
   	bool stopped;
-
-	public:
-		Video(int src, int winW, int winH);
-		void start();
-		void updat();
-		void read();
-		void stop();
+  
+  public:
+  	Video(int src, int winW, int winH);
+  	void start();
+  	void update();
+  	void read();
+  	void stop();
 };
 
 #endif  // VIDEO_H_

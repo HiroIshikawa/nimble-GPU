@@ -20,10 +20,10 @@ void start() {
 }
 
 
-void updat() {
+void update() {
 	while (true) {
 		if (this.stopped)
-			return
+			return;
 		std::tuple<cv::Mat, cv::Mat> reading;
 		reading = this.stream.read();
 		this.grabbed = reading[0];

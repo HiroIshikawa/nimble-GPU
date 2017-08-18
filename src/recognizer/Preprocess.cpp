@@ -5,7 +5,6 @@
 cv::Mat Preprocess::RegionOfInterest(cv::Mat img, int width, int height, std::vector<cv::Point> vertices) {
 	cv::Mat mask = cv::Mat(height,width, CV_64F, 0);
 
-	//if 
 	if (img.depth() > 0) {
 		int channelCount = img.depth();
 		cv::Scalar ignoreMaskColor = cv::Scalar(0,0,255*channelCount);
