@@ -45,6 +45,8 @@ int main(int argc, char *argv[]) {
 
 	Video vs();
 	Detect de();
+	Measure mes();
+	Interface inter();
 	try {
 		while (true) {
 			
@@ -58,7 +60,43 @@ int main(int argc, char *argv[]) {
 			vector<cv::Rect> rects = std::get<0>(detected);
 			cv::Mat = std::get<1>(detected);
 			de.Box(rects, img);
-			cv::imshow()
+			cv::imshow();
+
+			mes.runMeasure(img, rects, candidates);
+
+			if (time(0) - startTime > .5) {
+				if (candidates.size() > 0) {
+					avgPos = mean(candidates);
+					trackFlag = true;
+					candidates.clear();
+					startTime = time(0);
+				}
+				else {
+					;
+				}
+			}
+
+			if (trackFlag) {
+				std::cout << "Tracking activated" << std::endl;
+				inter.Track(avgPos);
+				monitorStartTime = time(0);
+				trackFlag = false;
+			}
+
+			if (time(0)-monitorStartTime < 5.) {
+				inter.Track(avgPos);
+			}
+
+			if (cv::waitKey(19) == 27) {
+				std::cout << "Stopping.." << std::endl;
+				vs.stop();
+				cv::destroyAllWindow();
+				break;
+			}
 		}
+	}
+	except (KeyboardInterrupt) {
+		vs.stop();
+		cv::destroyAllWindow();
 	}
 }
