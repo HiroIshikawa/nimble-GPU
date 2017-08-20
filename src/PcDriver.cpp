@@ -3,6 +3,7 @@
 #include "recognizer/Preprocess.h"
 #include "interface/Interface.h"
 
+#include <ctime>
 #include <thread>
 
 #include "video/Video.h"
@@ -26,4 +27,38 @@ float mean(vector<int> l) {
 		return 0.0;
 	}
 	return 1.0 * std::accumulate(l.begin(), l.end(), 0LL) / l.size();
+}
+
+
+void nabigate(vector<float> candidates) {
+
+}
+
+
+int main(int argc, char *argv[]) {
+	bool trackFlag = false;
+	bool monitorFlag = false;
+	float avgPos = 0.;
+	vector<float> candidates;
+
+	time_t startTime = time(0);
+
+	Video vs();
+	Detect de();
+	try {
+		while (true) {
+			
+			cv::Mat img = vs.read();
+			double scaleFactor = argv[1];
+			int minNeighs = argv[2];
+			int objW = img.col();
+			int objH = img.row();
+ 
+			std::tuple<vector<cv::Rect>, cv::Mat> detected = de.RunDetect(img, scaleFactor, minNeighs, objW, objH);
+			vector<cv::Rect> rects = std::get<0>(detected);
+			cv::Mat = std::get<1>(detected);
+			de.Box(rects, img);
+			cv::imshow()
+		}
+	}
 }
